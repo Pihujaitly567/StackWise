@@ -8,7 +8,7 @@ export function Navbar() {
       <div className="container mx-auto flex h-16 max-w-screen-xl items-center justify-between px-4">
         <Link href="/" className="flex items-center space-x-2">
           <BarChart3 className="h-6 w-6 text-primary" />
-          <span className="font-bold tracking-tight text-lg">StackWise AI</span>
+          <span className="font-bold tracking-tight text-lg">StackDNA</span>
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
           <Link href="#how-it-works" className="text-muted-foreground hover:text-primary transition-colors">
@@ -24,7 +24,7 @@ export function Navbar() {
         <div className="flex items-center space-x-4">
           <Link href="/audit">
             <Button className="rounded-full px-6 shadow-sm hover:shadow-md transition-all">
-              Run Free Audit
+              Decode My Stack
             </Button>
           </Link>
         </div>

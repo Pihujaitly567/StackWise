@@ -8,10 +8,10 @@ export function Footer() {
         <div className="md:col-span-2 space-y-4">
           <Link href="/" className="flex items-center space-x-2">
             <BarChart3 className="h-6 w-6 text-primary" />
-            <span className="font-bold tracking-tight text-lg">StackWise AI</span>
+            <span className="font-bold tracking-tight text-lg">StackDNA</span>
           </Link>
           <p className="text-muted-foreground text-sm max-w-xs">
-            Stop overpaying for AI tools. Instantly discover hidden savings across ChatGPT, Claude, Cursor and your AI stack.
+            StackDNA decodes your startup&apos;s AI spending behavior, helping you discover hidden waste and optimize subscriptions.
           </p>
         </div>
         <div className="space-y-4">
@@ -31,7 +31,7 @@ export function Footer() {
         </div>
       </div>
       <div className="container mx-auto max-w-screen-xl px-4 mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
-        &copy; {new Date().getFullYear()} StackWise AI. All rights reserved. (Demo)
+        &copy; {new Date().getFullYear()} StackDNA. All rights reserved. (Demo)
       </div>
     </footer>
   );

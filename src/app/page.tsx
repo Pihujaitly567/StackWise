@@ -1,17 +1,18 @@
 import { Hero } from "@/components/landing/Hero";
+import { Personalities } from "@/components/landing/Personalities";
 import { HowItWorks } from "@/components/landing/HowItWorks";
-import { FeatureCards } from "@/components/landing/FeatureCards";
-import { SavingsExample } from "@/components/landing/SavingsExample";
+import { RealResults } from "@/components/landing/SavingsExample";
 import { Testimonials } from "@/components/landing/Testimonials";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
       <Hero />
+      <Personalities />
       <HowItWorks />
-      <FeatureCards />
-      <SavingsExample />
+      <RealResults />
       <Testimonials />
     </main>
   );
 }
+
