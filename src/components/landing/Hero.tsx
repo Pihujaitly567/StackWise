@@ -5,8 +5,9 @@ import { useRef } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { MagneticButton } from "@/components/ui/MagneticButton";
-import { ArrowRight, CheckCircle2, Bot, Code2, Sparkles, Binary } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { FloatingEcosystem } from "@/components/ui/FloatingEcosystem";
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -233,31 +234,12 @@ export function Hero() {
               </Card>
             </motion.div>
 
-            {/* Floating Icons — different parallax layers */}
-            <motion.div style={{ x: layer2X, y: layer2Y }} className="absolute -left-12 top-0">
-              <motion.div animate={{ y: [-5, 5, -5] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="bg-white dark:bg-black p-3 rounded-2xl shadow-lg border border-border">
-                <Bot className="h-6 w-6 text-indigo-500" />
-              </motion.div>
-            </motion.div>
-            <motion.div style={{ x: layer3X, y: layer3Y }} className="absolute -right-8 top-10">
-              <motion.div animate={{ y: [5, -5, 5] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="bg-white dark:bg-black p-3 rounded-2xl shadow-lg border border-border">
-                <Sparkles className="h-6 w-6 text-purple-500" />
-              </motion.div>
-            </motion.div>
-            <motion.div style={{ x: layer1X }} className="absolute -left-4 bottom-10">
-              <motion.div animate={{ y: [-8, 8, -8] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} className="bg-white dark:bg-black p-3 rounded-2xl shadow-lg border border-border">
-                <Code2 className="h-6 w-6 text-blue-500" />
-              </motion.div>
-            </motion.div>
-            <motion.div style={{ x: layer2X }} className="absolute right-12 bottom-0">
-              <motion.div animate={{ y: [8, -8, 8] }} transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }} className="bg-white dark:bg-black p-3 rounded-2xl shadow-lg border border-border">
-                <Binary className="h-6 w-6 text-pink-500" />
-              </motion.div>
-            </motion.div>
           </div>
         </div>
 
       </div>
+
+      <FloatingEcosystem />
     </section>
   );
 }
