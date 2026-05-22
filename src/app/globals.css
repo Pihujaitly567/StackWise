@@ -159,4 +159,75 @@
     stroke-dasharray: 1000;
     animation: draw-helix 4s ease-in-out infinite alternate;
   }
+
+  /* Floating background system */
+  .bg-grid {
+    background-image: 
+      linear-gradient(hsla(280, 40%, 70%, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsla(280, 40%, 70%, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  @keyframes orbit {
+    0% { transform: rotate(0deg) translateX(var(--orbit-radius, 120px)) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(var(--orbit-radius, 120px)) rotate(-360deg); }
+  }
+  
+  .animate-orbit {
+    animation: orbit var(--orbit-duration, 20s) linear infinite;
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.15); }
+  }
+  
+  .animate-glow-pulse {
+    animation: glow-pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* Holographic card effect */
+  .holographic {
+    position: relative;
+    overflow: hidden;
+  }
+  .holographic::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg, 
+      transparent 40%, 
+      rgba(255,255,255,0.15) 45%,
+      rgba(255,255,255,0.05) 50%,
+      transparent 55%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Typewriter cursor */
+  @keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  .animate-blink {
+    animation: blink-cursor 1s steps(1) infinite;
+  }
+
+  @keyframes scan-line {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+
+  .animate-scan {
+    animation: scan-line 2s ease-in-out infinite;
+  }
 }
