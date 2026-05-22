@@ -2,10 +2,107 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { ToolChip } from "@/components/ui/ToolChip";
 import { ParallaxContainer } from "@/components/ui/ParallaxContainer";
+
+/* ─── The Meaningful Background (Neural Stack Core) ─── */
+function NeuralStackCore() {
+  return (
+    <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40 mix-blend-multiply dark:mix-blend-screen overflow-hidden">
+      
+      {/* Sweeping Scanner Beam */}
+      <motion.div 
+        animate={{ rotate: 360 }}
+        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+        className="absolute w-[150vw] h-[150vw] max-w-[2000px] max-h-[2000px] origin-center"
+      >
+        <div className="absolute top-1/2 right-1/2 w-[50%] h-[2px] bg-gradient-to-l from-indigo-500 to-transparent blur-[2px] shadow-[0_0_30px_rgba(99,102,241,0.8)]" />
+        <div className="absolute top-1/2 right-1/2 w-[50%] h-[100px] bg-gradient-to-b from-indigo-500/10 to-transparent -translate-y-1/2" style={{ clipPath: 'polygon(100% 50%, 0 0, 0 100%)' }} />
+      </motion.div>
+
+      <ParallaxContainer strength={40} className="relative w-[800px] h-[800px] flex items-center justify-center">
+        
+        {/* Core Hub */}
+        <div className="absolute w-32 h-32 rounded-full border border-indigo-500/30 bg-indigo-500/5 backdrop-blur-md flex items-center justify-center z-10 shadow-[0_0_50px_rgba(99,102,241,0.2)]">
+          <div className="w-16 h-16 rounded-full border-2 border-indigo-400/50 border-dashed animate-spin-slow" />
+          <div className="absolute w-8 h-8 rounded-full bg-indigo-500/20 blur-md animate-pulse" />
+        </div>
+
+        {/* SVG Connection Data Lines */}
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 800">
+          <defs>
+            <linearGradient id="cleanData" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#818cf8" stopOpacity="0.2" />
+              <stop offset="100%" stopColor="#c084fc" stopOpacity="0.6" />
+            </linearGradient>
+            <linearGradient id="wasteData" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#f43f5e" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#fbbf24" stopOpacity="0.4" />
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+
+          {/* Clean connections */}
+          <path d="M 400 400 L 200 200" stroke="url(#cleanData)" strokeWidth="2" fill="none" className="animate-pulse" />
+          <path d="M 400 400 L 600 600" stroke="url(#cleanData)" strokeWidth="2" fill="none" className="animate-pulse" />
+          <path d="M 400 400 L 150 500" stroke="url(#cleanData)" strokeWidth="2" fill="none" className="animate-pulse" />
+
+          {/* Waste / Overlap connections (Red tangled lines) */}
+          <path d="M 400 400 Q 600 200 500 150 T 650 250" stroke="url(#wasteData)" strokeWidth="3" fill="none" filter="url(#glow)" />
+          <path d="M 400 400 Q 550 250 650 250" stroke="url(#wasteData)" strokeWidth="3" fill="none" strokeDasharray="5,5" className="animate-pulse" />
+        </svg>
+
+        {/* Orbiting Tool Nodes */}
+        {/* Cursor: Clean Connection */}
+        <motion.div animate={{ rotate: 360 }} transition={{ duration: 60, repeat: Infinity, ease: "linear" }} className="absolute w-full h-full">
+          <div className="absolute top-[180px] left-[180px] -rotate-45 scale-125">
+            <ToolChip tool="cursor" size="lg" />
+          </div>
+        </motion.div>
+
+        {/* GitHub Copilot: Clean Connection */}
+        <motion.div animate={{ rotate: -360 }} transition={{ duration: 80, repeat: Infinity, ease: "linear" }} className="absolute w-full h-full">
+          <div className="absolute bottom-[180px] right-[180px] rotate-45 scale-110">
+            <ToolChip tool="copilot" size="md" />
+          </div>
+        </motion.div>
+        
+        {/* Gemini: Clean Connection */}
+        <motion.div animate={{ rotate: 360 }} transition={{ duration: 90, repeat: Infinity, ease: "linear" }} className="absolute w-full h-full">
+          <div className="absolute top-[480px] left-[130px] rotate-12 scale-100">
+            <ToolChip tool="gemini" size="md" />
+          </div>
+        </motion.div>
+
+        {/* ChatGPT & Claude: The Overlap Area (Static, Tangled) */}
+        <div className="absolute top-[120px] right-[150px] scale-150 z-20">
+          <div className="relative">
+            {/* Warning Glow */}
+            <div className="absolute -inset-10 bg-rose-500/20 blur-3xl rounded-full animate-pulse" />
+            <div className="absolute -left-12 top-4">
+              <ToolChip tool="chatgpt" size="md" />
+            </div>
+            <div className="absolute left-4 -top-8">
+              <ToolChip tool="claude" size="md" />
+            </div>
+            <div className="absolute left-8 top-12 bg-rose-500/90 text-white text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full border border-rose-400 shadow-xl">
+              Overlap Detected
+            </div>
+          </div>
+        </div>
+
+      </ParallaxContainer>
+    </div>
+  );
+}
 
 export function Hero() {
   return (
@@ -16,31 +113,10 @@ export function Hero() {
         <div className="absolute top-0 right-0 w-full h-[800px] bg-gradient-to-bl from-indigo-100/50 via-purple-50/30 to-transparent dark:from-indigo-900/20 dark:via-purple-900/10" />
       </div>
 
-      {/* 
-        IMMERSIVE 3D BACKGROUND (Vexel Vibe)
-        The image is absolutely positioned in the center.
-        mix-blend-multiply eliminates the white/gray square background, making the 3D object native to the page.
-      */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 mt-20 opacity-80 mix-blend-multiply dark:mix-blend-screen">
-        <ParallaxContainer strength={30} className="w-full h-full flex items-center justify-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-[120vw] max-w-[1200px] aspect-square opacity-60"
-          >
-            <Image
-              src="/images/hero-3d.png"
-              alt="Abstract 3D AI Data Core"
-              fill
-              className="object-contain"
-              priority
-            />
-          </motion.div>
-        </ParallaxContainer>
-      </div>
+      {/* Meaningful Immersive Network */}
+      <NeuralStackCore />
 
-      {/* Floating Typography Over the 3D Environment */}
+      {/* Floating Typography Over the Interactive Network */}
       <div className="container mx-auto max-w-screen-xl px-4 relative z-10 flex flex-col items-center text-center">
         
         <motion.div
